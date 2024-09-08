@@ -9,11 +9,11 @@ thead {
 .table-auto  {
   /* border-bottom: 1px solid #a0a7af49; */
   * :first-child {
-    width: 200px
+    
   }
 }
 .table-auto th {
-  padding: 0.5rem 0.75rem;
+  /* padding: 0.5rem 0.75rem; */
   
   
 

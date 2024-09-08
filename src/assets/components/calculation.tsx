@@ -34,37 +34,38 @@ const Calculator = ({ products }: CalcProps) => {
     <>
     
 
-      <div className="rounded bg-gray-700 mt-10 content-center justify-center grid">
-        <table className="table-auto w-full border-separate [border-spacing:0.95rem]">
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Category</th>
-              <th>Exp. Date</th>
-              <th>Price</th>
-              <th>Time left</th>
-            </tr>
-          </thead>
-          <tbody>
-            {sortedProducts.map((product, index) => {
-              const daysLeft = calculateDaysLeft(product.expirationDate);
-              const isExpired = daysLeft < 0;
+    <div className="rounded bg-gray-700 mt-10 content-center justify-center overflow-x-auto">
+  <table className="table-auto min-w-full border-separate [border-spacing:0.95rem]">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Category</th>
+        <th>Exp. Date</th>
+        <th>Price</th>
+        <th>Time left</th>
+      </tr>
+    </thead>
+    <tbody>
+      {sortedProducts.map((product, index) => {
+        const daysLeft = calculateDaysLeft(product.expirationDate);
+        const isExpired = daysLeft < 0;
 
-              return (
-                <tr key={index}>
-                  <td>{product.name}</td>
-                  <td>{product.category}</td>
-                  <td>{product.expirationDate}</td>
-                  <td>₺{product.price}</td>
-                  <td className={isExpired ? 'text-red-500' : ''}>
-                    {isExpired ? 'Expired' : `${daysLeft} Days`}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+        return (
+          <tr key={index}>
+            <td>{product.name}</td>
+            <td>{product.category}</td>
+            <td>{product.expirationDate}</td>
+            <td>₺{product.price}</td>
+            <td className={isExpired ? 'text-red-500' : ''}>
+              {isExpired ? 'Expired' : `${daysLeft} Days`}
+            </td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+</div>
+
     </>
   );
 };

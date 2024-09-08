@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+  overflow-x: hidden;
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -39,7 +48,7 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   
 }
 ::selection {

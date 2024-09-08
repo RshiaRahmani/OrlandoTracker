@@ -63,15 +63,15 @@ function App() {
   return (
     <>
       <div
-        className={`h-screen w-screen text-center ${
+        className={`h-screen w-full text-center ${
           isModalOpen ? "blur-sm" : ""
         }`}
       >
         <Nav />
-        <div className="w-screen justify-center p-10 grid text-center h-96 mt-10">
+        <div className="w-screen justify-center p-10  text-center h-96 mt-10">
           <div
             data-aos="zoom-in"
-            className="flex space-x-8 justify-center *:space-x-1 w-full *:w-32 mb-10 *:bg-gray-700 *:rounded-xl "
+            className="md:flex  space-y-3 md:space-y-0 md:space-x-8 md:justify-center *:space-x-1 w-full md:*:w-32 mb-10 *:bg-gray-700 *:rounded-xl "
           >
             <div className=" *:content-center p-3">
               <img src={box} alt="" />
@@ -111,21 +111,24 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="w-full justify-center content-center text-black flex space-x-5 container">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search"
-              className="searchBox bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-82 p-3"
-            />
-            <button
-              className="bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition duration-300 ease-in-out transform hover:border-transparent"
-              onClick={() => setIsModalOpen(true)}
-            >
-              +
-            </button>
-          </div>
+          <div className="w-screen flex justify-center">
+  <div className="w-full md:w-5/6 flex justify-center items-center text-black space-x-5">
+    <input
+      type="text"
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      placeholder="Search"
+      className="searchBox bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-82 p-3"
+    />
+    <button
+      className="bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition duration-300 ease-in-out transform hover:border-transparent"
+      onClick={() => setIsModalOpen(true)}
+    >
+      +
+    </button>
+  </div>
+</div>
+
           <Calc products={filteredProducts} />
         </div>
       </div>

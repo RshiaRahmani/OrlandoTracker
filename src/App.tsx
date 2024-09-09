@@ -57,7 +57,8 @@ function App() {
   const filteredProducts = products.filter(
     (product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.category.toLowerCase().includes(searchQuery.toLowerCase())
+      product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.expirationDate.includes(searchQuery)
   );
 
   return (
@@ -68,23 +69,23 @@ function App() {
         }`}
       >
         <Nav />
-        <div className="w-screen justify-center p-10  text-center h-96 mt-10">
+        <div className="w-screen justify-center p-10 text-center h-96 mt-1 text-white">
           <div
             data-aos="zoom-in"
-            className="md:flex  space-y-3 md:space-y-0 md:space-x-8 md:justify-center *:space-x-1 w-full md:*:w-32 mb-10 *:bg-gray-700 *:rounded-xl "
+            className="md:flex  space-y-3 md:space-y-0 md:space-x-8 md:justify-center *:space-x-1 w-full md:*:w-36 mb-10 *:bg-gray-700 *:rounded-xl "
           >
-            <div className=" *:content-center p-3">
-              <img src={box} alt="" />
-              <div className="flex border-b-4 rounded border-orange-500">
-                <h6 className="text-sm content-center">Total items</h6>
-                <h1> {products.length}</h1>
+            <div className=" *:content-center p-3 flex md:flex-col">
+              <img className="md:size-basic size-20" src={box} alt="" />
+              <div className="flex md:border-b-4  rounded border-orange-500">
+                <h6 className="text-sm content-center mr-1">Total items</h6>
+                <h1 className="content-center"> {products.length}</h1>
               </div>
             </div>
-            <div className=" *:content-center p-3">
-              <img src={archive} alt="" />
-              <div className="flex border-b-4 rounded border-orange-500">
-                <h6 className="text-sm content-center">Healthy items</h6>
-                <h1>
+            <div className=" *:content-center p-3 flex md:flex-col">
+              <img className="md:size-basic size-20" src={archive} alt="" />
+              <div className="flex md:border-b-4 rounded border-orange-500">
+                <h6 className="text-sm content-center mr-1">Healthy items</h6>
+                <h1 className="content-center">
                   {" "}
                   {
                     products.filter(
@@ -95,11 +96,11 @@ function App() {
                 </h1>
               </div>
             </div>
-            <div className=" *:content-center p-3">
-              <img src={chat} alt="" />
-              <div className="flex border-b-4 rounded border-orange-500">
-                <h6 className="text-sm content-center">Expired items</h6>
-                <h1>
+            <div className=" *:content-center p-3 flex md:flex-col">
+              <img className="md:size-basic size-20" src={chat} alt="" />
+              <div className="flex md:border-b-4 rounded border-orange-500">
+                <h6 className="text-sm content-center mr-1">Expired items</h6>
+                <h1 className="content-center">
                   {" "}
                   {
                     products.filter(
@@ -111,25 +112,35 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="w-screen flex justify-center">
-  <div className="w-full md:w-5/6 flex justify-center items-center text-black space-x-5">
-    <input
-      type="text"
-      value={searchQuery}
-      onChange={(e) => setSearchQuery(e.target.value)}
-      placeholder="Search"
-      className="searchBox bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-82 p-3"
-    />
-    <button
-      className="bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition duration-300 ease-in-out transform hover:border-transparent"
-      onClick={() => setIsModalOpen(true)}
-    >
-      +
-    </button>
-  </div>
-</div>
-
+          <div className="w-screen flex-col justify-center">
+            <div className="w-screen flex justify-center">
+            <div className="w-full md:w-5/6 flex justify-center items-center text-black space-x-5">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search"
+                className="searchBox bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-82 p-3"
+              />
+              <button
+                className="bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition duration-300 ease-in-out transform hover:border-transparent"
+                onClick={() => setIsModalOpen(true)}
+              >
+                +
+              </button>
+            </div>
+            </div>
+            <div className="mt-2 justify-center flex space-x-2 ">
+            <div className="bg-black rounded-xl w-min opacity-60 px-2 py-1 hover:opacity-80">drinks</div>
+            <div className="bg-black rounded-xl w-min opacity-60 px-2 py-1 hover:opacity-80">syrup</div>
+            <div className="bg-black rounded-xl w-min opacity-60 px-2 py-1 hover:opacity-80">+</div>
+              
+            </div>
+            
+          </div>
           <Calc products={filteredProducts} />
+          
+          <footer className="w-full h-10 bg-gray-700 my-10 rounded-t-xl content-center justify-center opacity-90 ">Developed By Arshia</footer>
         </div>
       </div>
 

@@ -55,7 +55,7 @@ const Nav = () => {
 
             {/* Sidebar Menu for mobile */}
             <div
-                className={`fixed top-0 right-0 h-full w-full  z-20 text-white transition-transform transform ${
+                className={`fixed top-0 right-0 h-full w-full z-30 text-white transition-transform transform ${
                     isOpen ? 'translate-x-0' : 'translate-x-full'
                 } md:hidden`}
             >

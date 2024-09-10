@@ -38,20 +38,20 @@ const Calculator = ({ products }: CalcProps) => {
   <table className="table-auto min-w-full border-separate [border-spacing:0.95rem]">
     <thead>
       <tr>
-        <th>Item</th>
+        <th >Item</th>
         <th>Category</th>
         <th>Exp. Date</th>
         <th>Price</th>
-        <th>Time left</th>
+        <th >Time left</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody >
       {sortedProducts.map((product, index) => {
         const daysLeft = calculateDaysLeft(product.expirationDate);
         const isExpired = daysLeft < 0;
 
         return (
-          <tr key={index}>
+          <tr key={index} >
             <td>{product.name}</td>
             <td>{product.category}</td>
             <td>{product.expirationDate}</td>

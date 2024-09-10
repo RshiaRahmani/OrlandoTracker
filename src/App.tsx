@@ -71,7 +71,7 @@ function App() {
       return product.category.toLowerCase() === "drinks" && matchesSearchQuery;
     } else if (selectedTag === "syrup") {
       return product.category.toLowerCase() === "syrup" && matchesSearchQuery;
-    }else if(selectedTag === "beer" ){
+    } else if (selectedTag === "beer") {
       return product.category.toLowerCase() === "beer" && matchesSearchQuery;
     } else if (selectedTag === "expired") {
       return isExpired && matchesSearchQuery;
@@ -84,13 +84,14 @@ function App() {
 
   return (
     <>
-      <div className={`h-screen w-full text-center ${isModalOpen ? "blur-sm" : ""}`}>
+      <div
+        className={`h-screen w-full text-center ${
+          isModalOpen ? "blur-sm" : ""
+        }`}
+      >
         <Nav />
         <div className="w-screen justify-center p-10 text-center h-96 mt-1 text-white">
-          <div
-            data-aos="zoom-in"
-            className="md:flex space-y-3 md:space-y-0 md:space-x-8 md:justify-center w-full mb-10 bg-zinc-900 md:bg-transparent rounded-xl"
-          >
+          <div className="md:flex space-y-3 md:space-y-0 md:space-x-8 md:justify-center w-full mb-10 bg-zinc-900 md:bg-transparent rounded-xl">
             {/* Top Cards */}
             <div className=" *:content-center p-3 flex md:flex-col">
               <img className="md:size-basic size-20" src={box} alt="" />
@@ -150,51 +151,68 @@ function App() {
               </div>
             </div>
 
-            <div className="mt-2 justify-center items-center flex space-x-2 text-xs md:text-lg">
+            <div className="mt-4 flex flex-wrap justify-center items-center space-x-2 text-xs md:text-lg">
               <div
-                className="bg-zinc-900 text-white rounded-xl opacity-80 px-4 py-2 cursor-pointer"
+                className="bg-zinc-900 text-white rounded-xl px-4 py-2 cursor-pointer mb-2"
                 onClick={() => handleTagClick("")}
               >
                 All
               </div>
-              <div className="border-r w-1 border-white mx-1 opacity-50 h-7 "></div>
+              <div className="border-r w-1 border-white mx-1 h-7 mb-2"></div>
               <div
-                className={`bg-zinc-900 text-white rounded-xl opacity-80 px-4 py-2 cursor-pointer ${selectedTag === "drinks" ? "bg-gray-800" : ""}`}
+                className={`bg-zinc-900 text-white rounded-xl px-4 py-2 cursor-pointer mb-2 ${
+                  selectedTag === "drinks" ? "bg-gray-800" : ""
+                }`}
                 onClick={() => handleTagClick("drinks")}
               >
                 drinks
               </div>
               <div
-                className={`bg-zinc-900 text-white rounded-xl opacity-80 px-4 py-2 cursor-pointer ${selectedTag === "syrup" ? "bg-gray-800" : ""}`}
+                className={`bg-zinc-900 text-white rounded-xl px-4 py-2 cursor-pointer mb-2 ${
+                  selectedTag === "syrup" ? "bg-gray-800" : ""
+                }`}
                 onClick={() => handleTagClick("syrup")}
               >
                 syrup
               </div>
               <div
-                className={`bg-zinc-900 text-white rounded-xl opacity-80 px-4 py-2 cursor-pointer ${selectedTag === "beer" ? "bg-gray-800" : ""}`}
+                className={`bg-zinc-900 text-white rounded-xl px-4 py-2 cursor-pointer mb-2 ${
+                  selectedTag === "beer" ? "bg-gray-800" : ""
+                }`}
                 onClick={() => handleTagClick("beer")}
               >
                 Beer
               </div>
               <div
-                className={`bg-zinc-900 text-white rounded-xl opacity-80 px-4 py-2 cursor-pointer ${selectedTag === "expired" ? "bg-gray-800" : ""}`}
+                className={`bg-zinc-900 text-white rounded-xl px-4 py-2 cursor-pointer mb-2 ${
+                  selectedTag === "expired" ? "bg-gray-800" : ""
+                }`}
                 onClick={() => handleTagClick("expired")}
               >
                 Expired
               </div>
               <div
-                className={`bg-zinc-900 text-white rounded-xl opacity-80 px-4 py-2 cursor-pointer ${selectedTag === "healthy" ? "bg-gray-800" : ""}`}
+                className={`bg-zinc-900 text-white rounded-xl px-4 py-2 cursor-pointer mb-2 ${
+                  selectedTag === "healthy" ? "bg-gray-800" : ""
+                }`}
                 onClick={() => handleTagClick("healthy")}
               >
                 Healthy
               </div>
-        
             </div>
           </div>
           <Calc products={filteredProducts} />
 
-          <footer className="w-full h-10 bg-gray-700 my-10 rounded-t-xl py-3 opacity-90">
-            Developed By <a href="https://t.me/Sachima" target="_blank" className="text-orange-400 hover:drop-shadow hover:text-orange-500 transition all-ease-in">Arshia</a> - September 2024 ©
+          <footer className="w-full h-10 bg-gray-700 my-10 rounded-t-xl py-3">
+            Developed By{" "}
+            <a
+              href="https://t.me/Sachima"
+              target="_blank"
+              className="text-orange-400 hover:drop-shadow hover:text-orange-500 transition all-ease-in"
+            >
+              Arshia
+            </a>{" "}
+            - September 2024 ©
           </footer>
         </div>
       </div>

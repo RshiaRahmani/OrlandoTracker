@@ -71,6 +71,8 @@ function App() {
       return product.category.toLowerCase() === "drinks" && matchesSearchQuery;
     } else if (selectedTag === "syrup") {
       return product.category.toLowerCase() === "syrup" && matchesSearchQuery;
+    }else if(selectedTag === "beer" ){
+      return product.category.toLowerCase() === "beer" && matchesSearchQuery;
     } else if (selectedTag === "expired") {
       return isExpired && matchesSearchQuery;
     } else if (selectedTag === "healthy") {
@@ -87,7 +89,7 @@ function App() {
         <div className="w-screen justify-center p-10 text-center h-96 mt-1 text-white">
           <div
             data-aos="zoom-in"
-            className="md:flex space-y-3 md:space-y-0 md:space-x-8 md:justify-center w-full mb-10 bg-gray-700 rounded-xl"
+            className="md:flex space-y-3 md:space-y-0 md:space-x-8 md:justify-center w-full mb-10 bg-zinc-900 md:bg-transparent rounded-xl"
           >
             {/* Top Cards */}
             <div className=" *:content-center p-3 flex md:flex-col">
@@ -148,49 +150,51 @@ function App() {
               </div>
             </div>
 
-            <div className="mt-2 justify-center flex space-x-2 text-xs md:text-lg">
+            <div className="mt-2 justify-center items-center flex space-x-2 text-xs md:text-lg">
               <div
-                className={`bg-black text-white rounded-xl opacity-70 px-4 py-2 cursor-pointer ${selectedTag === "drinks" ? "bg-gray-800" : ""}`}
+                className="bg-zinc-900 text-white rounded-xl opacity-80 px-4 py-2 cursor-pointer"
+                onClick={() => handleTagClick("")}
+              >
+                All
+              </div>
+              <div className="border-r w-1 border-white mx-1 opacity-50 h-7 "></div>
+              <div
+                className={`bg-zinc-900 text-white rounded-xl opacity-80 px-4 py-2 cursor-pointer ${selectedTag === "drinks" ? "bg-gray-800" : ""}`}
                 onClick={() => handleTagClick("drinks")}
               >
                 drinks
               </div>
               <div
-                className={`bg-black text-white rounded-xl opacity-70 px-4 py-2 cursor-pointer ${selectedTag === "syrup" ? "bg-gray-800" : ""}`}
+                className={`bg-zinc-900 text-white rounded-xl opacity-80 px-4 py-2 cursor-pointer ${selectedTag === "syrup" ? "bg-gray-800" : ""}`}
                 onClick={() => handleTagClick("syrup")}
               >
                 syrup
               </div>
               <div
-                className={`bg-black text-white rounded-xl opacity-70 px-4 py-2 cursor-pointer ${selectedTag === "Beer" ? "bg-gray-800" : ""}`}
-                onClick={() => handleTagClick("Beer")}
+                className={`bg-zinc-900 text-white rounded-xl opacity-80 px-4 py-2 cursor-pointer ${selectedTag === "beer" ? "bg-gray-800" : ""}`}
+                onClick={() => handleTagClick("beer")}
               >
                 Beer
               </div>
               <div
-                className={`bg-black text-white rounded-xl opacity-70 px-4 py-2 cursor-pointer ${selectedTag === "expired" ? "bg-gray-800" : ""}`}
+                className={`bg-zinc-900 text-white rounded-xl opacity-80 px-4 py-2 cursor-pointer ${selectedTag === "expired" ? "bg-gray-800" : ""}`}
                 onClick={() => handleTagClick("expired")}
               >
                 Expired
               </div>
               <div
-                className={`bg-black text-white rounded-xl opacity-70 px-4 py-2 cursor-pointer ${selectedTag === "healthy" ? "bg-gray-800" : ""}`}
+                className={`bg-zinc-900 text-white rounded-xl opacity-80 px-4 py-2 cursor-pointer ${selectedTag === "healthy" ? "bg-gray-800" : ""}`}
                 onClick={() => handleTagClick("healthy")}
               >
                 Healthy
               </div>
-              <div
-                className="bg-black text-white rounded-xl opacity-70 px-4 py-2 cursor-pointer"
-                onClick={() => handleTagClick("")}
-              >
-                +
-              </div>
+        
             </div>
           </div>
           <Calc products={filteredProducts} />
 
           <footer className="w-full h-10 bg-gray-700 my-10 rounded-t-xl py-3 opacity-90">
-            Developed By Arshia
+            Developed By <a href="https://t.me/Sachima" target="_blank" className="text-orange-400 hover:drop-shadow hover:text-orange-500 transition all-ease-in">Arshia</a> - September 2024 ©
           </footer>
         </div>
       </div>

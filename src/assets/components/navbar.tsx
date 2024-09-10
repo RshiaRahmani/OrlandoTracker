@@ -9,19 +9,42 @@ const Nav = () => {
     };
 
     return (
-        <nav className="text-white flex justify-between items-center p-4 px-10">
+        <nav className="text-white flex justify-between items-center p-4 px-10 shadow-md bg-zinc-900 opacity-90">
             {/* Logo */}
             <div className="flex items-center">
                 <img className="w-36" src={logo} alt="Logo" />
             </div>
 
             {/* Menu for larger screens */}
-            <ul className="hidden md:flex space-x-6">
-                <li className="hover:text-gray-400 cursor-pointer">Home</li>
-                <li className="hover:text-gray-400 cursor-pointer">Inventory</li>
-                <li className="hover:text-gray-400 cursor-pointer">Event</li>
-                <li className="hover:text-gray-400 cursor-pointer">indeed</li>
-            </ul>
+            <ul className="hidden md:flex space-x-6 p-2 rounded-lg">
+  <li className="group relative">
+    <a href="#" className="text-white hover:text-gray-300 transition-colors duration-300">
+      Home
+    </a>
+    <span className="absolute inset-x-0 bottom-0 h-1 bg-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+  </li>
+  <li className="group relative">
+    <a href="#" className="text-white hover:text-gray-300 transition-colors duration-300">
+      Inventory
+    </a>
+    <span className="absolute inset-x-0 bottom-0 h-1 bg-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+  </li>
+  <li className="group relative">
+    <a href="#" className="text-white hover:text-gray-300 transition-colors duration-300">
+      Event
+    </a>
+    <span className="absolute inset-x-0 bottom-0 h-1 bg-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+  </li>
+  <li className="group relative">
+    <a href="#" className="text-white hover:text-gray-300 transition-colors duration-300">
+      Indeed
+    </a>
+    <span className="absolute inset-x-0 bottom-0 h-1 bg-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+  </li>
+</ul>
+
+
+
 
             {/* Hamburger Menu for mobile */}
             <div className={`md:hidden ${isOpen ? 'hidden' : ''}`}>

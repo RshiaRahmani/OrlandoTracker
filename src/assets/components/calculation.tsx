@@ -34,7 +34,7 @@ const Calculator = ({ products }: CalcProps) => {
     <>
     
 
-    <div className="rounded-xl bg-gray-700 mt-10 content-center justify-center overflow-x-auto text-xs md:text-lg">
+    <div className="rounded-xl bg-gray-700 mt-5 content-center justify-center overflow-x-auto text-xs md:text-lg">
   <table className="table-auto min-w-full border-separate [border-spacing:0.95rem]">
     <thead>
       <tr>

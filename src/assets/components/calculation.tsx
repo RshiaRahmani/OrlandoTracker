@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 
 
 interface Product {
+  branch: ReactNode;
   price: ReactNode;
   name: string;
   category: string;
@@ -41,7 +42,8 @@ const Calculator = ({ products }: CalcProps) => {
         <th >Item</th>
         <th>Category</th>
         <th>Exp. Date</th>
-        <th>Price</th>
+        <th className="hidden md:block">Price</th>
+        <th>branch</th>
         <th >Time left</th>
       </tr>
     </thead>
@@ -52,10 +54,11 @@ const Calculator = ({ products }: CalcProps) => {
 
         return (
           <tr key={index} >
-            <td>{product.name}</td>
+            <td >{product.name}</td>
             <td>{product.category}</td>
             <td>{product.expirationDate}</td>
-            <td>₺{product.price}</td>
+            <td  className="hidden md:block">₺{product.price}</td>
+            <td>{product.branch ? product.branch : "-"} </td>
             <td className={isExpired ? 'text-red-500' : ''}>
               {isExpired ? 'Expired' : `${daysLeft} Days`}
             </td>

@@ -20,7 +20,7 @@ const Nav = () => {
       <ul className="hidden md:flex space-x-6 p-2 rounded-lg">
         <li className="group relative">
           <Link
-            to="/"
+            to="/OrlandoTracker/"
             className="text-white hover:text-gray-300 transition-colors duration-300"
           >
             Home
@@ -29,7 +29,7 @@ const Nav = () => {
         </li>
         <li className="group relative">
           <Link
-            to="./inventory"
+            to="/OrlandoTracker/inventory"
             className="text-white hover:text-gray-300 transition-colors duration-300"
           >
             Inventory
@@ -38,7 +38,7 @@ const Nav = () => {
         </li>
         <li className="group relative">
           <Link
-            to="./events"
+            to="/OrlandoTracker/events"
             className="text-white hover:text-gray-300 transition-colors duration-300"
           >
             Event
@@ -47,7 +47,7 @@ const Nav = () => {
         </li>
         <li className="group relative">
           <Link
-            to="./indeed"
+            to="/OrlandoTracker/indeed"
             className="text-white hover:text-gray-300 transition-colors duration-300"
           >
             Indeed
@@ -80,16 +80,16 @@ const Nav = () => {
         </button>
         <ul className="flex flex-col items-center text-white z-30 space-y-6 mt-24">
           <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer">
-            <Link to="/">Home</Link>
+            <Link to="/OrlandoTracker/">Home</Link>
           </li>
           <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer">
-            <Link to="./inventory">Inventory</Link>
+            <Link to="/OrlandoTracker/inventory">Inventory</Link>
           </li>
           <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer">
-            <Link to="./events">Events</Link>
+            <Link to="/OrlandoTracker/events">Events</Link>
           </li>
           <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer">
-            <Link to="./indeed">Indeed</Link>
+            <Link to="/OrlandoTracker/indeed">Indeed</Link>
           </li>
         </ul>
       </div>

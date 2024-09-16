@@ -8,12 +8,6 @@ thead {
   border-bottom: 1px solid #b2becd;
   color: #a2abb2;
 }
-.table-auto  {
-  /* border-bottom: 1px solid #a0a7af49; */
-  * :first-child {
-    
-  }
-}
 .table-auto th {
   /* padding: 0.5rem 0.75rem; */
   padding-bottom: 2vh;

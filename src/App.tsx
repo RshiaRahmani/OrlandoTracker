@@ -14,12 +14,12 @@ function App() {
         <div className="flex-grow " >
           <Routes>
           
-          <Route path="/" element={<Home />} />
+          <Route path="/OrlandoTracker/" element={<Home />} />
           
-        <Route  path="/inventory" element={<Inventory />} />
-        <Route path="/events" element={<Event />} />
-        <Route path="/indeed" element={<Indeed />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route  path="/OrlandoTracker/inventory" element={<Inventory />} />
+        <Route path="/OrlandoTracker/events" element={<Event />} />
+        <Route path="/OrlandoTracker/indeed" element={<Indeed />} />
+        <Route path="*" element={<Navigate to="/OrlandoTracker/" replace />} />
           </Routes>
         </div>
         {/* <footer className="w-full  text-center md:px-10 px-2 items-center justify-center flex mt-10">

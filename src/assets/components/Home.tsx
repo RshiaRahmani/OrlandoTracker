@@ -21,7 +21,7 @@ const Home = () => {
           <div className="grid grid-cols-3 gap-4 items-center content-center justify-center text-2xl text-orange-500 *:rounded-xl mt-10 ">
             {/* Inventory Link */}
             <Link
-              to="/inventory"
+              to="/OrlandoTracker/inventory"
               className="col-span-2 home-card flex-col p-4 h-48 bg-zinc-900"
             >
               <div className="">
@@ -34,7 +34,7 @@ const Home = () => {
 
             {/* Indeed Link */}
             <Link
-              to="/indeed"
+              to="/OrlandoTracker/indeed"
               className="col-span-1 home-card rounded-lg h-48 p-4"
             >
               <div className="">
@@ -47,7 +47,7 @@ const Home = () => {
 
             {/* Events Link */}
             <Link
-              to="/events"
+              to="/OrlandoTracker/events"
               className="col-span-1 home-card rounded-lg h-48 p-4"
             >
               <div className="">

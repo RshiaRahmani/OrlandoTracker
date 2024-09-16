@@ -14,11 +14,11 @@ function App() {
         <div className="flex-grow " >
           <Routes>
           
-          <Route path="/OrlandoTracker/" element={<Home />} />
+          <Route path="OrlandoTracker/" element={<Home />} />
           
-        <Route  path="/OrlandoTracker/inventory" element={<Inventory />} />
-        <Route path="/OrlandoTracker/events" element={<Event />} />
-        <Route path="/OrlandoTracker/indeed" element={<Indeed />} />
+        <Route  path="OrlandoTracker/inventory" element={<Inventory />} />
+        <Route path="OrlandoTracker/events" element={<Event />} />
+        <Route path="OrlandoTracker/indeed" element={<Indeed />} />
         <Route path="*" element={<Navigate to="/OrlandoTracker/" replace />} />
           </Routes>
         </div>

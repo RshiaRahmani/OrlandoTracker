@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import "../../App.css";
-import Nav from "./navbar";
 import Calc from "./calculation";
 import { addProduct, getProducts } from "../../firestoreFunctions";
 import box from "../images/icons/box.png";
@@ -439,7 +438,5 @@ function inventory() {
 }
 
 export default inventory;
-function deviceDetect(): any {
-  throw new Error("Function not implemented.");
-}
+
 

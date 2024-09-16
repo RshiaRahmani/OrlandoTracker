@@ -48,8 +48,8 @@ const Nav = () => {
 
             {/* Hamburger Menu for mobile */}
             <div className={`md:hidden ${isOpen ? 'hidden' : ''}`}>
-                <button onClick={toggleMenu} className='hover:border-orange-900'>
-                    {isOpen ? <h5>y</h5> : <img src={hamburger} className='w-5 invert'></img>}
+                <button onClick={toggleMenu} className='hover:border-orange-900 border-2 bg-zinc-900'>
+                    {isOpen ? '' : <img src={hamburger} className='w-5 invert'></img>}
                 </button>
             </div>
 
@@ -66,10 +66,10 @@ const Nav = () => {
                     <h5>x</h5>
                 </button>
                 <ul className="flex flex-col items-center z-30 space-y-6 mt-24">
-                    <li className="hover:text-gray-400 cursor-pointer">Home</li>
-                    <li className="hover:text-gray-400 cursor-pointer">Inventory</li>
-                    <li className="hover:text-gray-400 cursor-pointer">Event</li>
-                    <li className="hover:text-gray-400 cursor-pointer">indeed</li>
+                    <li className="hover:text-orange-500 delay transition all-ease  cursor-pointer">Home</li>
+                    <li className="hover:text-orange-500 delay transition all-ease  cursor-pointer">Inventory</li>
+                    <li className="hover:text-orange-500 delay transition all-ease  cursor-pointer">Events</li>
+                    <li className="hover:text-orange-500 delay transition all-ease  cursor-pointer">indeed</li>
                 </ul>
             </div>
 

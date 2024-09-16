@@ -54,7 +54,7 @@ const Calculator = ({ products }: CalcProps) => {
 
         return (
           <tr key={index} >
-            <td >{product.name}</td>
+            <td className="flex-wrap">{product.name}</td>
             <td>{product.category}</td>
             <td>{product.expirationDate}</td>
             <td  className="hidden md:block">₺{product.price}</td>

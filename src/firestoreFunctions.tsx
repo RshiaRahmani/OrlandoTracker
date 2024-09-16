@@ -1,14 +1,15 @@
 import { collection, addDoc, getDocs, doc, deleteDoc, query, orderBy } from 'firebase/firestore';
 import { db } from './firebaseConfig';
 
-export const addProduct = async (name: string, category: string, expirationDate: string, price: number, branch: string) => {
+export const addProduct = async (name: string, category: string, expirationDate: string, price: number, branch: string, dateAdded: string) => {
   try {
     await addDoc(collection(db, 'products'), {
       name,
       category,
       expirationDate,
       price,
-      branch
+      branch,
+      dateAdded
     });
   } catch (e) {
     console.error('Error adding document: ', e);

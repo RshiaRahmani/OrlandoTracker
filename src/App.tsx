@@ -7,10 +7,10 @@ import box from "../src/assets/images/icons/box.png";
 import archive from "../src/assets/images/icons/archive.png";
 import chat from "../src/assets/images/icons/chat.png";
 import AOS from "aos";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+//import ReactDOM from "react-dom/client";
+//import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "aos/dist/aos.css";
-import Inventory from "./assets/components/Inventory";
+//import Inventory from "./assets/components/Inventory";
 import cross from "./assets/images/icons/cross.svg";
 
 interface Product {
@@ -33,9 +33,12 @@ function App() {
   const [selectedTag, setSelectedTag] = useState<string>("");
   const [selectedBranch, setSelectedBranch] = useState<string>("");
   const [branch, setBranch] = useState("");
+  const [dateAdded, setDateAdded] = useState("");
+  const [errMss, setErrMss] = useState("");
 
   useEffect(() => {
     // Fetch products from Firestore on component mount
+
     selectedBranch;
     const fetchProducts = async () => {
       const productsFromDB = await getProducts();
@@ -47,13 +50,26 @@ function App() {
   }, []);
 
   const handleAddProduct = async () => {
-    if (name && category && expirationDate && price && branch) {
+    setDateAdded(new Date().toString());
+    if (
+      !name ||
+      !category ||
+      !expirationDate ||
+      !price ||
+      !branch ||
+      !dateAdded
+    ) {
+      setErrMss("Please fill all the fields");
+      return;
+    }
+    if (name && category && expirationDate && price && branch && dateAdded) {
       await addProduct(
         name,
         category,
         expirationDate,
         parseFloat(price.toString()),
-        branch // add branch here
+        branch,
+        dateAdded
       );
       const updatedProducts = await getProducts();
       setProducts(updatedProducts);
@@ -63,6 +79,7 @@ function App() {
       setPrice("");
       setBranch("");
       setIsModalOpen(false);
+      setErrMss("");
     }
   };
 
@@ -80,28 +97,32 @@ function App() {
     if (selectedTag === "drinks") {
       return (
         product.category.toLowerCase() === "drinks" &&
-        product.branch === selectedBranch &&
+        (!selectedBranch || product.branch === selectedBranch) &&
         matchesSearchQuery
       );
     } else if (selectedTag === "syrup") {
       return (
         product.category.toLowerCase() === "syrup" &&
-        product.branch === selectedBranch &&
+        (!selectedBranch || product.branch === selectedBranch) &&
         matchesSearchQuery
       );
     } else if (selectedTag === "beer") {
       return (
         product.category.toLowerCase() === "beer" &&
-        product.branch === selectedBranch &&
+        (!selectedBranch || product.branch === selectedBranch) &&
         matchesSearchQuery
       );
     } else if (selectedTag === "expired") {
       return (
-        isExpired && product.branch === selectedBranch && matchesSearchQuery
+        isExpired &&
+        (!selectedBranch || product.branch === selectedBranch) &&
+        matchesSearchQuery
       );
     } else if (selectedTag === "healthy") {
       return (
-        !isExpired && product.branch === selectedBranch && matchesSearchQuery
+        !isExpired &&
+        (!selectedBranch || product.branch === selectedBranch) &&
+        matchesSearchQuery
       );
     } else if (selectedTag.toLowerCase() === "magusa") {
       return product.branch === "Magusa" && matchesSearchQuery;
@@ -120,7 +141,7 @@ function App() {
         }`}
       >
         <Nav />
-        <div className="w-screen justify-center p-10 text-center min-h-screen mt-1 text-white">
+        <div className="w-screen justify-center p-2 md:p-10 text-center min-h-screen mt-1 text-white">
           <div className="md:flex select-none space-y-3 md:space-y-0 md:space-x-8 md:justify-center w-full mb-10 bg-zinc-900 md:bg-transparent rounded-xl">
             {/* Top Cards */}
             <div className=" *:content-center p-3 flex md:flex-col">
@@ -190,6 +211,7 @@ function App() {
                   onClick={() => {
                     handleTagClick("");
                     setSelectedBranch("");
+                    setSelectedTag("");
                   }}
                 >
                   All
@@ -296,8 +318,8 @@ function App() {
           </div>
           <Calc products={filteredProducts} />
         </div>
-          <footer className="w-full text-center items-center px-10  items-center justify-center flex  mt-10 b-0">
-            <p className="bg-zinc-900 items-center justify-center flex w-full h-12 rounded-t-xl">
+        <footer className="w-full text-center items-center md:px-10 px-2  items-center justify-center flex  mt-10 b-0">
+          <p className="bg-zinc-900 items-center justify-center flex w-full h-12 rounded-t-xl">
             Developed By
             <a
               href="https://t.me/Sachima"
@@ -307,8 +329,8 @@ function App() {
               Arshia
             </a>{" "}
             - September 2024 ©
-            </p>
-          </footer>
+          </p>
+        </footer>
       </div>
 
       {isModalOpen && (
@@ -323,18 +345,41 @@ function App() {
           >
             <button
               className="absolute top-2 right-2 text-gray-500 bg-transparent hover:bg-gray-800 hover:text-white font-semibold py-2 px-4 border border-0 hover:border-transparent rounded cursor-pointer transition duration-100 ease-in-out"
-              onClick={() => setIsModalOpen(false)}
+              onClick={() => {setIsModalOpen(false);  setErrMss("");}}
             >
               &times;
             </button>
             <h2 className="text-2xl mb-4 text-black">Add New Product</h2>
             <div className="flex flex-col space-y-4">
+              <div
+                className={`bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md transition all-ease-in ${errMss ? 'opacity-100' : 'opacity-0 h-0 w-0'}`}
+                role="alert"
+              >
+                <div className="flex">
+                  <div className="py-1">
+                    <svg
+                      className="fill-current h-6 w-6 text-red-500 mr-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-bold">Seriously?!</p>
+                    <p className="text-sm">
+                      {errMss}
+                    </p>
+                  </div>
+                </div>
+              </div> 
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Product Name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
               />
               <select
                 name="category"
@@ -342,6 +387,7 @@ function App() {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
               >
                 <option value="Other">-Select Category-</option>
                 <option value="Drinks">Drinks</option>
@@ -360,11 +406,13 @@ function App() {
                 onChange={(e) => setExpirationDate(e.target.value)}
                 placeholder="Expiration Date"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
               />
               <select
                 value={branch}
                 onChange={(e) => setBranch(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                required
               >
                 <option value="Magusa">-Select Branch-</option>
                 <option value="Magusa">Magusa</option>
@@ -392,7 +440,7 @@ function App() {
 }
 
 export default App;
-
-function setbranch(arg0: string) {
+function deviceDetect(): any {
   throw new Error("Function not implemented.");
 }
+

@@ -13,7 +13,9 @@ const Nav = () => {
     <nav className="text-white flex justify-between items-center p-4 px-10 shadow-md bg-zinc-900 opacity-90">
       {/* Logo */}
       <div className="flex items-center">
+        <Link to={"/orlandotracker/"}>
         <img className="w-36" src={logo} alt="Logo" />
+        </Link>
       </div>
 
       {/* Menu for larger screens */}
@@ -79,16 +81,20 @@ const Nav = () => {
           <h5>x</h5>
         </button>
         <ul className="flex flex-col items-center text-white z-30 space-y-6 mt-24">
-          <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer">
+          <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer"
+          onClick={toggleMenu}>
             <Link to="/OrlandoTracker/">Home</Link>
           </li>
-          <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer">
+          <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer"
+          onClick={toggleMenu}>
             <Link to="/OrlandoTracker/inventory">Inventory</Link>
           </li>
-          <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer">
+          <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer"
+          onClick={toggleMenu}>
             <Link to="/OrlandoTracker/events">Events</Link>
           </li>
-          <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer">
+          <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer"
+          onClick={toggleMenu}>
             <Link to="/OrlandoTracker/indeed">Indeed</Link>
           </li>
         </ul>

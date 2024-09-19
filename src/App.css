@@ -34,3 +34,6 @@ link .home-card  :hover {
   filter: blur(10px);
   
 }
+.qoute {
+  text-shadow: rgba(255, 142, 12, 0.363) 0.1em 0.1em 1rem;
+}

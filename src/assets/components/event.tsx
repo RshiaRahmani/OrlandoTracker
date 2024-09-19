@@ -1,7 +1,7 @@
 const event = () => {
     return ( <>
     <div className="w-screen justify-center p-2 md:p-10 text-center min-h-screen mt-1 text-white">
-        <h1 className="text-4xl uppercase">Events Page</h1>
+        
         <p className="text-xl"></p>
         <div className=" text-center py-4 lg:px-4">
           <div

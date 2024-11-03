@@ -1,16 +1,36 @@
-import { useState } from "react";
-import logo from "../../assets/images/basic.png";
+import { useEffect, useState } from "react";
+import logo from "../../assets/images/basic.svg";
+import searchicon from "../../assets/images/icons/search.svg";
 import hamburger from "../../assets/images/icons/more.png";
 import { Link } from "react-router-dom";
 const Nav = () => {
+  
   const [isOpen, setIsOpen] = useState(false);
+  const [navbarScrolled, setNavbarScrolled] = useState(false);
+
+  // Function to handle the scroll event
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setNavbarScrolled(true);
+    } else {
+      setNavbarScrolled(false);
+    }
+  };
+
+  // Add scroll event listener on component mount and cleanup on unmount
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <nav className="text-white flex justify-between items-center p-4 px-10 shadow-md bg-zinc-900 opacity-90">
+    <nav className={`text-white flex justify-between items-center p-4 px-10 z-50  ${navbarScrolled ? 'bg-zinc-800 bg-opacity-80 shadow-md' : ''} ${isOpen ? `` : `backdrop-blur-md`} fixed w-screen transition transition ease-in-out duration-500`} >
       {/* Logo */}
       <div className="flex items-center">
         <Link to={"/orlandotracker/"}>
@@ -19,52 +39,56 @@ const Nav = () => {
       </div>
 
       {/* Menu for larger screens */}
-      <ul className="hidden md:flex space-x-6 p-2 rounded-lg">
+      <ul className={`hidden md:flex  space-x-6 p-1 rounded-lg`}>
         <li className="group relative">
           <Link
             to="/OrlandoTracker/"
-            className="text-white hover:text-gray-300 transition-colors duration-300"
+            className={`${navbarScrolled ? 'text-white' : 'text-zinc-800'} hover:text-gray-300 transition-colors duration-300`}
           >
             Home
           </Link>
-          <span className="absolute inset-x-0 bottom-0 h-1 bg-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+          <span className="absolute inset-x-0 bottom-0 h-1 bg-[#1cc079] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
         </li>
         <li className="group relative">
           <Link
             to="/OrlandoTracker/inventory"
-            className="text-white hover:text-gray-300 transition-colors duration-300"
+            className={`${navbarScrolled ? 'text-white' : 'text-zinc-800'} hover:text-gray-300 transition-colors duration-300`}
           >
-            Inventory
+            About us
           </Link>
-          <span className="absolute inset-x-0 bottom-0 h-1 bg-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+          <span className="absolute inset-x-0 bottom-0 h-1 bg-[#1cc079] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
         </li>
         <li className="group relative">
           <Link
             to="/OrlandoTracker/events"
-            className="text-white hover:text-gray-300 transition-colors duration-300"
+            className={`${navbarScrolled ? 'text-white' : 'text-zinc-800'} hover:text-gray-300 transition-colors duration-300`}
           >
-            Event
+            Contact us
           </Link>
-          <span className="absolute inset-x-0 bottom-0 h-1 bg-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+          <span className="absolute inset-x-0 bottom-0 h-1 bg-[#1cc079] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
         </li>
         <li className="group relative">
           <Link
             to="/OrlandoTracker/indeed"
-            className="text-white hover:text-gray-300 transition-colors duration-300"
+            className={`${navbarScrolled ? 'text-white' : 'text-zinc-800'} hover:text-gray-300 transition-colors duration-300`}
           >
-            Indeed
+            Privacy policy
           </Link>
-          <span className="absolute inset-x-0 bottom-0 h-1 bg-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+          <span className="absolute inset-x-0 bottom-0 h-1 bg-[#1cc079] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
         </li>
       </ul>
 
+      <div>
+        <img src={searchicon} className={`${navbarScrolled ? '' : 'invert'} w-7 hidden md:block`}></img> 
+      </div>
+
       {/* Hamburger Menu for mobile */}
-      <div className={`md:hidden ${isOpen ? "hidden" : ""}`}>
+      <div className={`md:hidden ${isOpen ? "hidden" : "invert"}`}>
         <button
           onClick={toggleMenu}
-          className="hover:border-orange-900 border-2 bg-zinc-900"
+          className="border-none bg-transparent"
         >
-          {isOpen ? "" : <img src={hamburger} className="w-5 invert"></img>}
+          {isOpen ? "" : <img src={hamburger} className="w-5 invert "></img>}
         </button>
       </div>
 
@@ -81,21 +105,21 @@ const Nav = () => {
           <h5>x</h5>
         </button>
         <ul className="flex flex-col items-center text-white z-30 space-y-6 mt-24">
-          <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer"
+          <li className="hover:text-[#1cd183] delay transition text-white all-ease cursor-pointer"
           onClick={toggleMenu}>
             <Link to="/OrlandoTracker/">Home</Link>
           </li>
-          <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer"
+          <li className="hover:text-[#1cd183] delay transition text-white all-ease cursor-pointer"
           onClick={toggleMenu}>
-            <Link to="/OrlandoTracker/inventory">Inventory</Link>
+            <Link to="/OrlandoTracker/inventory">About us</Link>
           </li>
-          <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer"
+          <li className="hover:text-[#1cd183] delay transition text-white all-ease cursor-pointer"
           onClick={toggleMenu}>
-            <Link to="/OrlandoTracker/events">Events</Link>
+            <Link to="/OrlandoTracker/events">Contact us</Link>
           </li>
-          <li className="hover:text-orange-500 delay transition text-white all-ease cursor-pointer"
+          <li className="hover:text-[#1cd183] delay transition text-white all-ease cursor-pointer"
           onClick={toggleMenu}>
-            <Link to="/OrlandoTracker/indeed">Indeed</Link>
+            <Link to="/OrlandoTracker/indeed">Privacy policy</Link>
           </li>
         </ul>
       </div>
@@ -105,7 +129,8 @@ const Nav = () => {
         <div
           className="fixed inset-0 bg-black opacity-90 z-10 transition-opacity transition-transform transition duration-300 ease-in-out"
           onClick={toggleMenu}
-        ></div>
+        >
+        </div>
       )}
     </nav>
   );

@@ -1,131 +1,104 @@
-import truck from "../images/icons/truck-loading.png";
-import shop from "../images/icons/shopping-cart.png";
-import horn from "../images/icons/party-horn.png";
-import handEmoji from "../images/icons/hand.png";
-import star from "../images/icons/star2.png";
+import downArrow from "../../assets/images/icons/arrow-down.svg";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Quote from "./qoute";
+import introPic from "../../assets/images/intro.png";
 
 
 const Home = () => {
 
   
-  const [time, setTime] = useState({
-    hour: new Date().getHours(),
-    minutes: new Date().getMinutes(),
-    date: new Date().getDate(),
-    month: new Date().getMonth()
-  });
-  const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-  
   useEffect(() => {
 
-    const tick = () => {
-      const now = new Date();
-      setTime({
-        hour: now.getHours(),
-        minutes: now.getMinutes(),
-        date: now.getDate(),
-        month: now.getMonth()
-      });
-    };
-
-    // Update the time every second
-    const intervalId = setInterval(tick, 1000);
-
-    // Clean up the interval when the component unmounts
-    return () => clearInterval(intervalId);
   }, []);
+
+
+  
 
   return (
     <>
-      <div className="w-screen md:w-3/4 justify-center mx-auto">
-        <div className="w-screen justify-center p-2 md:p-10 text-center min-h-screen mt-1 text-white">
-          <div className="flex justify-between w-screen mt-5 md:mt-0">
-            <h1 className="text-2xl md:text-4xl  text-left  text-orange-100 uppercase  items-center justify-center md:justify-center">
-              Welcome back,
-              <span className="flex items-center">
-                Orlando
-                <img
-                  src={handEmoji}
-                  className="w-8 h-8 md:w-12 md:h-12 ml-2"
-                  alt="Hand Emoji"
-                />
-              </span>
-            </h1>
-            <h1 className="text-2xl md:text-4xl  text-right  text-orange-100 uppercase  items-center justify-center md:justify-start">
-              <span>
-                {time.hour.toString().padStart(2, "0")} :{" "}
-                {time.minutes.toString().padStart(2, "0")}
-              </span>
-              <br />
-              <span>
-                {time.date}
-                {months[time.month]}
-              </span>
-            </h1>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4 items-center content-center justify-center text-2xl text-orange-500 *:rounded-xl mt-10 ">
-            {/* Inventory Link */}
-            <Link
-              to="/OrlandoTracker/inventory"
-              className="col-span-2 home-card flex-col p-4 h-48 bg-zinc-900"
-            >
-              <div className="">
-                <div className="bg-orange-200 rounded-full p-4 w-fit">
-                  <img className="w-7" src={truck} alt="Truck Icon" />
-                </div>
-              </div>
-              <p className="mt-3 hover:text-white">Inventory</p>
-            </Link>
-
-            {/* Indeed Link */}
-            <Link
-              to="/OrlandoTracker/indeed"
-              className="col-span-1 home-card rounded-lg h-48 p-4"
-            >
-              <div className="">
-                <div className="bg-orange-200 rounded-full p-4 w-fit">
-                  <img className="w-7" src={shop} alt="Shop Icon" />
-                </div>
-              </div>
-              <p className="mt-3 text-zinc-900">Indeed</p>
-            </Link>
-
-            {/* Events Link */}
-            <Link
-              to="/OrlandoTracker/events"
-              className="col-span-1 home-card rounded-lg h-48 p-4"
-            >
-              <div className="">
-                <div className="bg-orange-200 rounded-full p-4 w-fit">
-                  <img className="w-7" src={horn} alt="Horn Icon" />
-                </div>
-              </div>
-              <p className="mt-3 text-zinc-900">Events</p>
-            </Link>
-
-            {/* Footer */}
-            <div className="col-span-2 home-card rounded-lg h-48 flex items-center justify-center">
-              Proudly Developed & Designed by Arshia :)
-            </div>
-          </div>
-          <div className="bg-zinc-900 overflow-hidden grid grid-cols-3 gap-4 items-center content-center justify-center text-2xl text-orange-500 rounded-xl mt-10 p-8 relative">
-            <div className="absolute top-0 -left-10 md:-left-56   w-80 h-80 md:w-[70rem] md:h-[50rem] md:mx-auto bg-orange-200 rounded-full blur-3xl z-0 opacity-45"></div>
-
-            <h1 className="z-10 col-span-6 text-2xl md:text-4xl text-left text-orange-100 uppercase items-center flex justify-center md:justify-start">
-              <img className="w-16 mr-2" src={star} alt="" />
-              Quotes of the Day
-            </h1>
-
-            <h3 className="z-10 col-span-5 text-right">
-              <Quote />
-            </h3>
+      {/* Hero Section */}
+      <div className=" w-screen justify-center header h-lvh mx-auto flex-column pt-44 justify-center items-center text-center">
+        <div className="*:mb-5">
+          <h1 className="text-zinc-700">
+            Welcome to <br />
+            AsciiNomads
+          </h1>
+          <h4 className="text-zinc-400">
+            Asciinomads: Building The Futute, One Character a Time
+          </h4>
+          <br />
+          <button className="bg-white *:text-black *:px-10">
+            <Link to="/about">Learn more</Link>
+          </button>
+        </div>
+        <div className="w-screen justify-center items-center content-center flex h-44">
+          <div className="rounded-full bg-white w-10 h-10">
+            <a href="#intro"><img src={downArrow} alt="" className="w-6 mx-auto mt-2"  /></a>
           </div>
         </div>
       </div>
+      {/* Hero Section End */}
+      {/*  Cards Section  */}
+      <div className="bg-blue-600 px-10 md:px-16  relative"  id="intro">
+      <div className="bg-blue-600 h-24 -rotate-1 w-[110%] right-0 -top-5 absolute"></div>
+        <div className="flex lg:flex-row flex-col-reverse">
+          <div className="justify-start mt-20 text-sm w-82">
+            <h1>introduction</h1>
+            <h2 className="my-8 text-zinc-300">Explore the range of programming services we offer</h2>
+            <h1>short introduction</h1>
+            <h2 className="my-8 text-zinc-300">(values ​​and benefits) Lorem ipsum dolor sit amet consectetur. Platea non sit libero fames metus a nullam. Nunc consequat at morbi in egestas. Adipiscing nam posuere fermentum neque diam. Mi ullamcorper molestie sodales tempus nunc nisi imperdiet mauris nisl. Non ultricies massa sem risus neque fames. Nunc rutrum .</h2>
+            <h1>Our Values</h1>
+            <h2 className="my-8 text-zinc-300">(values ​​and benefits) Lorem ipsum dolor sit amet consectetur. Platea non sit libero fames metus a nullam. Nunc consequat at morbi in egestas. Adipiscing nam posuere fermentum neque diam. Mi ullamcorper molestie sodales tempus nunc nisi imperdiet mauris nisl. Non ultricies massa sem risus neque fames. Nunc rutrum .</h2>
+            <h1>Benefits</h1>
+            <h2 className="my-8 text-zinc-300">(values ​​and benefits) Lorem ipsum dolor sit amet consectetur. Platea non sit libero fames metus a nullam. Nunc consequat at morbi in egestas. Adipiscing nam posuere fermentum neque diam. Mi ullamcorper molestie sodales tempus nunc nisi imperdiet mauris nisl. Non ultricies massa sem risus neque fames. Nunc rutrum .</h2>
+           
+          </div>
+          <div className="flex jutify-center items-center">
+            <img src={introPic} alt="" className="mt-20 md:w-[300vh]" />
+          </div>
+        </div>
+      </div>
+        <div className="h-5/6 bg-white relative pt-32">
+          <div className="bg-blue-600 h-24 -rotate-1 w-[110%] right-0 -top-5 absolute"></div>
+        {/* Cards Section */}
+<div className="w-screen md:px-32 px-10 relative flex-column md:flex md:space-x-10 items-center *:mb-6 py-10">
+  {/* Card One */}
+  <div className="bg-zinc-100 rounded-lg flex-column items-left p-3 z-10 shadow-md text-black">
+    <div className="bg-white rounded h-8 w-8 shadow justify-center items-center flex text-2xl p-5">
+      1
+    </div>
+    <h2 className="text-2xl mt-3">Expertise</h2>
+    <p className="text-zinc-600 text-sm mt-1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. At provident aspernatur harum fugit ratione totam dolores nobis itaque corporis sint reiciendis cum commodi sunt nostrum voluptates laboriosam, autem necessitatibus soluta!
+    </p>
+  </div>
+
+  {/* Card Two */}
+  <div className="bg-zinc-100 rounded-lg flex-column items-left p-3 z-10 shadow-md text-black">
+    <div className="bg-white rounded h-8 w-8 shadow justify-center items-center flex text-2xl p-5">
+      2
+    </div>
+    <h2 className="text-2xl mt-3">Mission</h2>
+    <p className="text-zinc-600 text-sm mt-1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. At provident aspernatur harum fugit ratione totam dolores nobis itaque corporis sint reiciendis cum commodi sunt nostrum voluptates laboriosam, autem necessitatibus soluta!
+    </p>
+  </div>
+
+  {/* Card Three */}
+  <div className="bg-zinc-100 rounded-lg flex-column items-left p-3 z-10 shadow-md text-black">
+    <div className="bg-white rounded h-8 w-8 shadow justify-center items-center flex text-2xl p-5">
+      3
+    </div>
+    <h2 className="text-2xl mt-3">Values</h2>
+    <p className="text-zinc-600 text-sm mt-1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. At provident aspernatur harum fugit ratione totam dolores nobis itaque corporis sint reiciendis cum commodi sunt nostrum voluptates laboriosam, autem necessitatibus soluta!
+    </p>
+  </div>
+</div>
+
+{/* Our Services Section */}
+        </div>
     </>
   );
 };

@@ -40,7 +40,7 @@ a {
   transition: all ease-in-out 0.5;
 }
 ul a:hover {
-  color: #ea580c;
+  color: #1cd183;
 }
 
 body {
@@ -55,7 +55,7 @@ body {
 }
 ::selection {
   color: white;
-  background: orange;
+  background: #1cd183;
 }
 h1 {
   font-size: 3.2em;
@@ -79,6 +79,28 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.header{
+  /* background: linear-gradient(232deg,#4dd3e8,#35e973);
+  background-size: 120% 120%;
+  animation: gradient-animation 4s ease infinite; */
+  background-image: url('assets/images/Screen_Recording_2024-09-27_165943-ezgif.com-video-to-gif-converter.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @media (prefers-color-scheme: light) {

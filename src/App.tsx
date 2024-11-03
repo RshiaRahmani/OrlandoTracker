@@ -14,27 +14,14 @@ function App() {
         <div className="flex-grow " >
           <Routes>
           
-          <Route path="OrlandoTracker/" element={<Home />} />
+          <Route path="Asccinomads/" element={<Home />} />
           
-        <Route  path="OrlandoTracker/inventory" element={<Inventory />} />
-        <Route path="OrlandoTracker/events" element={<Event />} />
-        <Route path="OrlandoTracker/indeed" element={<Indeed />} />
-        <Route path="*" element={<Navigate to="/OrlandoTracker/" replace />} />
+        <Route  path="Asccinomads/inventory" element={<Inventory />} />
+        <Route path="Asccinomads/events" element={<Event />} />
+        <Route path="Asccinomads/indeed" element={<Indeed />} />
+        <Route path="*" element={<Navigate to="/Asccinomads/" replace />} />
           </Routes>
         </div>
-        {/* <footer className="w-full  text-center md:px-10 px-2 items-center justify-center flex mt-10">
-          <p className="bg-zinc-900 items-center justify-center flex w-full h-12 rounded-t-xl">
-            Developed By
-            <a
-              href="https://t.me/Sachima"
-              target="_blank"
-              className="text-orange-400 mx-1 underline hover:drop-shadow hover:text-orange-500 transition all-ease-in"
-            >
-              Arshia
-            </a>{" "}
-            - September 2024 ©
-          </p>
-        </footer> */}
       </div>
     </Router>
   );

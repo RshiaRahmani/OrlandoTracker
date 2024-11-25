@@ -33,6 +33,12 @@ html, body {
   src: url(assets/Fonts/Ubuntu-Bold.ttf);
 }
 
+@font-face {
+  font-family: Conthrax;
+  src: url(assets/Fonts/conthrax-sb.otf);
+}
+
+
 a {
   font-weight: 500;
   color: #eaeaed;
@@ -85,10 +91,40 @@ button:focus-visible {
   /* background: linear-gradient(232deg,#4dd3e8,#35e973);
   background-size: 120% 120%;
   animation: gradient-animation 4s ease infinite; */
-  background-image: url('assets/images/Screen_Recording_2024-09-27_165943-ezgif.com-video-to-gif-converter.gif');
   background-repeat: no-repeat;
   background-size: cover;
   
+}
+
+.spline-container {
+  position: absolute; /* Overlay it over the "header" div */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place it behind other content */
+  overflow: hidden; /* Prevent spilling */
+}
+
+/* Ensure "header" content is properly layered above */
+.header {
+  position: relative;
+  z-index: 1; /* Content above Spline background */
+}
+
+/* Adjustments for layout consistency */
+h1, h4, button, .rounded-full {
+  position: relative;
+  z-index: 2; /* Ensure all text and buttons are above Spline */
+}
+
+.partner-sec{
+  background-image: url('assets/images/bg-partners2.png');
+  /* background-position: -70vh 0px; */
+  background-size: auto 100%;
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @keyframes gradient-animation {

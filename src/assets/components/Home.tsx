@@ -175,10 +175,7 @@ const Home = () => {
 
             <h2 className="text-2xl mt-3 conthrax">Expertise</h2>
             <p className="text-zinc-600 text-sm mt-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-              provident aspernatur harum fugit ratione totam dolores nobis
-              itaque corporis sint reiciendis cum commodi sunt nostrum
-              voluptates laboriosam, autem necessitatibus soluta!
+            At Asciinomads, we specialize in custom software, web and mobile apps, AI, cloud computing, and system integration. With a focus on innovation, we tackle complex challenges and deliver solutions that exceed expectations.
             </p>
           </div>
 
@@ -215,10 +212,7 @@ const Home = () => {
             </div>
             <h2 className="text-2xl mt-3 conthrax">Mission</h2>
             <p className="text-zinc-600 text-sm mt-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-              provident aspernatur harum fugit ratione totam dolores nobis
-              itaque corporis sint reiciendis cum commodi sunt nostrum
-              voluptates laboriosam, autem necessitatibus soluta!
+            Our mission is to empower businesses with innovative software solutions that drive growth, efficiency, and success, making technology a powerful enabler for your goals.
             </p>
           </div>
 
@@ -255,10 +249,7 @@ const Home = () => {
             </div>
             <h2 className="text-2xl mt-3 conthrax">Values</h2>
             <p className="text-zinc-600 text-sm mt-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-              provident aspernatur harum fugit ratione totam dolores nobis
-              itaque corporis sint reiciendis cum commodi sunt nostrum
-              voluptates laboriosam, autem necessitatibus soluta!
+            We are guided by values of innovation, excellence, and integrity, prioritizing quality, collaboration, and adaptability to deliver impactful results.
             </p>
           </div>
         </div>

@@ -23,7 +23,8 @@ const Nav = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+    
+  }, [isOpen]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -94,10 +95,11 @@ const Nav = () => {
 
       {/* Sidebar Menu for mobile */}
       <div
-        className={`fixed top-0 right-0 h-full w-full z-30 text-white transition-transform transform ${
+        className={`fixed top-0 right-0 h-full w-full z-30 text-white  transition-transform transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >
+        <div className="bg-black/[0.9] w-screen h-screen fixed">
         <button
           className="absolute top-4 right-4 text-white"
           onClick={toggleMenu}
@@ -122,16 +124,16 @@ const Nav = () => {
             <Link to="/OrlandoTracker/indeed">Privacy policy</Link>
           </li>
         </ul>
+        </div>
       </div>
 
       {/* Overlay background */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black opacity-90 z-10 transition-opacity transition-transform transition duration-300 ease-in-out"
-          onClick={toggleMenu}
-        >
-        </div>
-      )}
+      {/* <div
+  className={`fixed inset-0 bg-black z-20 transition-opacity duration-300 ease-in-out ${
+    isOpen ? "opacity-90 pointer-events-auto" : "opacity-0 pointer-events-none"
+  }`}
+  onClick={toggleMenu}
+></div> */}
     </nav>
   );
 };

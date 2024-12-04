@@ -80,13 +80,13 @@ const Home = () => {
       </div>
 
       {/* Main Content */}
-      <div className="*:mb-5" data-aos="fade-down">
+      <div className="*:mb-5" data-aos="fade-down" data-aos-delay="2200">
         <h1 className="text-zinc-700 conthrax">
           Welcome to <br />
           AsciiNomads
         </h1>
-        <h4 className="text-zinc-400">
-          Asciinomads: Building The Future, One Character at a Time
+        <h4 className="text-zinc-400 ">
+          Code Beyond The Borders
         </h4>
         <br />
         <button className="bg-white *:text-black hover:border-white hover:border-1 transition-all ease-in-out *:px-10">
